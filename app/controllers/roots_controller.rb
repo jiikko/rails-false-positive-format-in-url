@@ -1,5 +1,5 @@
 class RootsController < ApplicationController
-  def hoge
-    render :hoge
+  def show
+  
   end
 end
