@@ -1,24 +1,20 @@
-# README
+# :idパラメータにマッチするformatを無効にする動作確認railsプロジェクト
+`resources :roots, format: false, constraints: { id: /([^\/])+/ }`
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## デフォルトの挙動
+* http://localhost:3000/roots/aaaaaaaaa.gif
+  * `Processing by RootsController#show as GIF`
+  * `Completed 406 Not Acceptable`
+* http://localhost:3000/roots/aaaaaaaaa.gif/edit
+  * `Processing by RootsController#edit as HTML`
+  * `Completed 200 OK`
 
-Things you may want to cover:
+## before_actionでformatを上書き
+`before_action ->{ request.format = :html }`
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* http://localhost:3000/roots/aaaaaaaaa.gif
+  * Processing by RootsController#show as GIF
+  * Completed 200 OK
+* http://localhost:3000/roots/aaaaaaaaa.gif/edit
+  * `Processing by RootsController#edit as HTML`
+  * `Completed 200 OK`
