@@ -1,0 +1,11 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8mb4
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: root
+  password:
+  socket: /tmp/mysql.sock
+
+development:
+  <<: *default
+  database: the_format_disable_development
