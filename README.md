@@ -19,7 +19,9 @@
   * `Processing by RootsController#edit as HTML`
   * `Completed 200 OK`
 
-## FAQ
-### これやっていいの?
-コメントで書いていたので問題なさそう
-https://github.com/rails/rails/blob/ac6aa32f7cf66264ba87eabed7c042bb60bcf3a2/actionpack/lib/action_dispatch/http/mime_negotiation.rb#L122-L135
+## format: false
+
+[4] pry(#<ActionDispatch::Journey::Router>)> parameters
+=> {:controller=>"roots", :action=>"show", :id=>"aaaaaaaaa.gif"}
+[1] pry(#<RootsController>)> params
+=> <ActionController::Parameters {"controller"=>"roots", "action"=>"show", "id"=>"aaaaaaaaa.gif", "format"=>"html"} permitted: false>
